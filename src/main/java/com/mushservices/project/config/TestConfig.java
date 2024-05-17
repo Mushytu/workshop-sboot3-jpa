@@ -15,6 +15,7 @@ import com.mushservices.project.entities.Product;
 import com.mushservices.project.entities.User;
 import com.mushservices.project.entities.enums.OrderStatus;
 import com.mushservices.project.repositories.CategoryRepository;
+import com.mushservices.project.repositories.OrderItemRepository;
 import com.mushservices.project.repositories.OrderRepository;
 import com.mushservices.project.repositories.ProductRepository;
 import com.mushservices.project.repositories.UserRepository;
@@ -34,6 +35,9 @@ public class TestConfig implements CommandLineRunner {
 	
 	@Autowired
 	private ProductRepository prodRep;
+	
+	@Autowired
+	private OrderItemRepository orderItemRep;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -76,8 +80,8 @@ public class TestConfig implements CommandLineRunner {
 		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice()); 
 		
-		s
-		
+		orderItemRep.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+	
 		
 	}
 }
