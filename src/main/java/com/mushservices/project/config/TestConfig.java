@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.mushservices.project.entities.Category;
 import com.mushservices.project.entities.Order;
 import com.mushservices.project.entities.OrderItem;
+import com.mushservices.project.entities.Payment;
 import com.mushservices.project.entities.Product;
 import com.mushservices.project.entities.User;
 import com.mushservices.project.entities.enums.OrderStatus;
@@ -81,7 +82,11 @@ public class TestConfig implements CommandLineRunner {
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice()); 
 		
 		orderItemRep.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
-	
+		
+		Payment pay1 = new Payment(null, o1.getMoment().plusMillis(7200000), o1);
+		o1.setPayment(pay1);
+		
+		orderRep.save(o1);
 		
 	}
 }
