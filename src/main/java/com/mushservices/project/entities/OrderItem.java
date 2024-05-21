@@ -3,6 +3,7 @@ package com.mushservices.project.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mushservices.project.entities.pk.OrderItemPK;
 
 import jakarta.persistence.EmbeddedId;
@@ -31,7 +32,8 @@ public class OrderItem implements Serializable {
 		this.quantity = quantity;
 		this.price = price;
 	}
-
+	
+	@JsonIgnore
 	public Order getOrder() {
 		return id.getOrder();
 	}
