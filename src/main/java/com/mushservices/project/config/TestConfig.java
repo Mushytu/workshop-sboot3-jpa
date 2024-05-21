@@ -83,7 +83,7 @@ public class TestConfig implements CommandLineRunner {
 		
 		orderItemRep.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 		
-		Payment pay1 = new Payment(null, o1.getMoment().plusMillis(7200000), o1);
+		Payment pay1 = new Payment(null, o1.getMoment().plusMillis(720000), o1);
 		o1.setPayment(pay1);
 		
 		orderRep.save(o1);
